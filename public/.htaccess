@@ -1,0 +1,7 @@
+RewriteEngine On
+
+# Ensure the RewriteBase is correct for XAMPP subfolder
+# If accessed via http://localhost/SPK-Handphone/public/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [L,QSA]

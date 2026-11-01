@@ -1,0 +1,33 @@
+# Konfigurasi sensitif & Lokal
+.env
+.env.*
+!.env.example
+app/config/database.local.php
+
+# File Sementara & Log
+*.log
+*.tmp
+*.cache
+*.bak
+*.backup
+error_log
+
+# Sistem Operasi
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+
+# Dependency
+/vendor/
+node_modules/
+
+# Backup Database terkompresi
+*.sql.zip
+*.sql.gz
+
+# XAMPP / Local server temp
+xampp/

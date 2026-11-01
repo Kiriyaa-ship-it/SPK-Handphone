@@ -1,0 +1,16 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="400" fill="#f3f4f6"/>
+  <g transform="translate(200, 200)">
+    <!-- Phone outline -->
+    <rect x="-80" y="-120" width="160" height="240" rx="15" fill="#e5e7eb" stroke="#9ca3af" stroke-width="3"/>
+    <rect x="-70" y="-110" width="140" height="200" fill="#fff"/>
+    <circle cx="0" cy="105" r="12" fill="#d1d5db"/>
+    
+    <!-- Camera -->
+    <circle cx="-25" cy="-95" r="8" fill="#9ca3af"/>
+    <rect x="15" y="-100" width="30" height="10" rx="5" fill="#9ca3af"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="200" y="350" font-family="Arial, sans-serif" font-size="18" fill="#9ca3af" text-anchor="middle">Tidak Ada Gambar</text>
+</svg>

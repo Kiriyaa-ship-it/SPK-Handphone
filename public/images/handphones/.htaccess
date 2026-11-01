@@ -1,0 +1,12 @@
+# Prevent PHP script execution in upload folder
+<Files *.php>
+    deny from all
+</Files>
+
+# Allow only images
+<FilesMatch "\.(jpg|jpeg|png|gif)$">
+    Allow from all
+</FilesMatch>
+
+# Disable directory listing
+Options -Indexes
