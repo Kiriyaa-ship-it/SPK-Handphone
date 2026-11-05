@@ -84,7 +84,7 @@
         <?php endforeach; ?>
     </div>
     
-    <div class="card mt-4">
+    <!-- <div class="card mt-4">
         <div class="card-header">
             <h3 class="card-title"><i class="fas fa-info-circle"></i> Catatan Perhitungan</h3>
         </div>
@@ -131,7 +131,7 @@
         </div>
     </div>
     <?php endif; ?>
-</div>
+</div> -->
 
 <style>
 .hp-card {

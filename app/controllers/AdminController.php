@@ -130,7 +130,7 @@ class AdminController extends BaseController {
             
             // Handle upload gambar
             $gambarFilename = null;
-            if (isset($_FILES['gambar']) && $_FILES['gambar']['error'] === UPLOAD_ERR_OK) {
+            if (isset($_FILES['gambar']) && $_FILES['gambar']['error'] !== UPLOAD_ERR_NO_FILE) {
                 $uploadResult = $this->handleImageUpload($_FILES['gambar']);
                 if ($uploadResult['success']) {
                     $gambarFilename = $uploadResult['filename'];
@@ -205,7 +205,7 @@ class AdminController extends BaseController {
             
             // Handle upload gambar baru
             $gambarFilename = $handphone['gambar']; // Keep old image by default
-            if (isset($_FILES['gambar']) && $_FILES['gambar']['error'] === UPLOAD_ERR_OK) {
+            if (isset($_FILES['gambar']) && $_FILES['gambar']['error'] !== UPLOAD_ERR_NO_FILE) {
                 $uploadResult = $this->handleImageUpload($_FILES['gambar']);
                 if ($uploadResult['success']) {
                     // Delete old image
@@ -305,10 +305,23 @@ class AdminController extends BaseController {
      */
     private function handleImageUpload($file) {
         $uploadDir = __DIR__ . '/../../public/images/handphones/';
+        if (!is_dir($uploadDir)) {
+            mkdir($uploadDir, 0777, true);
+        }
         
         // Validasi error upload
         if ($file['error'] !== UPLOAD_ERR_OK) {
-            return ['success' => false, 'error' => 'Gagal upload file'];
+            switch ($file['error']) {
+                case UPLOAD_ERR_INI_SIZE:
+                case UPLOAD_ERR_FORM_SIZE:
+                    return ['success' => false, 'error' => 'Ukuran file terlalu besar (maksimal 2MB)'];
+                case UPLOAD_ERR_PARTIAL:
+                    return ['success' => false, 'error' => 'File hanya terupload sebagian'];
+                case UPLOAD_ERR_NO_FILE:
+                    return ['success' => false, 'error' => 'Tidak ada file yang diupload'];
+                default:
+                    return ['success' => false, 'error' => 'Gagal upload file (Kode error: ' . $file['error'] . ')'];
+            }
         }
         
         // Validasi ukuran (max 2MB)
@@ -317,13 +330,13 @@ class AdminController extends BaseController {
         }
         
         // Validasi MIME type
-        $allowedMimes = ['image/jpeg', 'image/jpg', 'image/png'];
+        $allowedMimes = ['image/jpeg', 'image/jpg', 'image/png', 'image/pjpeg', 'image/x-png'];
         $finfo = finfo_open(FILEINFO_MIME_TYPE);
         $mimeType = finfo_file($finfo, $file['tmp_name']);
         finfo_close($finfo);
         
         if (!in_array($mimeType, $allowedMimes)) {
-            return ['success' => false, 'error' => 'Format file harus JPG, JPEG, atau PNG'];
+            return ['success' => false, 'error' => 'Format file harus JPG, JPEG, atau PNG (Terdeteksi: ' . $mimeType . ')'];
         }
         
         // Validasi extension

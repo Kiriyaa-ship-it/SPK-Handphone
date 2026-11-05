@@ -222,6 +222,7 @@ class SawService {
                 'handphone_merk' => $hp['merk'],
                 'handphone_harga' => $hp['harga'],
                 'handphone_deskripsi' => $hp['deskripsi'] ?? '',
+                'gambar' => $hp['gambar'] ?? null,
                 'ram_gb' => $hp['ram_gb'],
                 'storage_gb' => $hp['storage_gb'],
                 'raw_values' => $rawValues,

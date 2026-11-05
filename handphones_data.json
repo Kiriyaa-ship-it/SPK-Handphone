@@ -1,0 +1,45 @@
+[
+  {
+    "nama": "Samsung Galaxy A25 5G",
+    "merk": "Samsung",
+    "chipset": "Exynos 1280",
+    "ram_gb": 8,
+    "storage_gb": 128,
+    "kamera_skala": 4,
+    "harga": 3500000,
+    "url": "https://www.gsmarena.com/samsung_galaxy_a25-12555.php"
+  }
+]
+,
+  {
+    "nama": "Samsung Galaxy A15 5G",
+    "merk": "Samsung",
+    "chipset": "Dimensity 6100+",
+    "ram_gb": 8,
+    "storage_gb": 128,
+    "kamera_skala": 3,
+    "harga": 2800000,
+    "url": "https://www.gsmarena.com/samsung_galaxy_a15_5g-12638.php"
+  }
+,
+  {
+    "nama": "Xiaomi Redmi Note 13 4G",
+    "merk": "Xiaomi",
+    "chipset": "Snapdragon 685",
+    "ram_gb": 8,
+    "storage_gb": 256,
+    "kamera_skala": 4,
+    "harga": 2400000,
+    "url": "https://www.gsmarena.com/xiaomi_redmi_note_13_4g-12750.php"
+  }
+,
+  {
+    "nama": "Xiaomi Poco M6 Pro",
+    "merk": "Xiaomi",
+    "chipset": "Helio G99 Ultra",
+    "ram_gb": 8,
+    "storage_gb": 256,
+    "kamera_skala": 4,
+    "harga": 2900000,
+    "url": "https://www.gsmarena.com/xiaomi_poco_m6_pro-12779.php"
+  }
